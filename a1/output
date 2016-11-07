@@ -1,0 +1,17 @@
+-Throwing by value, catching by value:
+Throwing object 'main object'by value
+Caught exception by value
+Hello by 'local object' (copy)  (copy) // 2 copies are found
+
+-Throwing by value catching by reference:
+Throwing object 'main object'by value
+Caught exception by reference
+Hello by 'local object' (copy) // 1 copy is found
+
+The '(copy)' is appended by the copy constructor, so atleast 1 copy is made
+by throwing an object.
+
+'Throw' throws the original exception. An exception is rethrown when it is
+not caught yet in the present try-block level, then the exception will be
+retrown to a higher level until it is caught.
+That means that the exception is handled and will be inactivated.
