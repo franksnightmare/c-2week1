@@ -1,3 +1,13 @@
+Exercise description:
+Part 1:
+show that exception catchers catching objects result in additional copies of thrown objects, 
+compared to exception catchers catching references to objects. 
+Part 2:
+Also show that when throwing objects or references copies of the (referred to) objects are thrown.
+Part 3:
+Also answer the question whether `throw;' results in throwing the currently available exception or a copy of that exception. 
+
+Part 1:
 -Throwing by value, catching by value:
 Throwing object 'main object'by value
 Caught exception by value
@@ -6,11 +16,11 @@ Hello by 'local object' (copy)  (copy) // 2 copies are found
 -Throwing by value catching by reference:
 Throwing object 'main object'by value
 Caught exception by reference
-Hello by 'local object' (copy) // 1 copy is found
-
+Hello by 'local object' (copy) // 1 copy is found (answered part 2)
+Part 2:
 The '(copy)' is appended by the copy constructor, so atleast 1 copy is made
 by throwing an object.
-
+Part 3:
 'Throw' throws the original exception. An exception is rethrown when it is
 not caught yet in the present try-block level, then the exception will be
 retrown to a higher level until it is caught.
