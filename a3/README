@@ -1,0 +1,14 @@
+This uses the code that was supplied with the exercise instead of our code.
+
+exception was included in strings.ih
+
+changed functions:
+add.cc			catch and roll-back for bad_alloc
+enlarged.cc		catch and rethrow for bad_alloc
+reserve.cc		catch, rethrow and roll-back for bad_alloc
+resize.cc		catch and roll-back for bad_alloc
+storagearea.cc		catch and rethrow for bad_alloc
+
+
+added functions:
+destroy2.cc		does the same as destroy() but also deletes some strings.
