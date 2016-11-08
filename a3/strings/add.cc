@@ -12,7 +12,7 @@ void Strings::add(string const &next)
 	size_t oldCapacity = d_capacity;
 	try
 	{
-		**tmp = storageArea();
+		tmp = storageArea();
 		
 		tmp[d_size] = new string(next);
 	}
