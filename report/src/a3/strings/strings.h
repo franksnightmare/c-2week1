@@ -41,6 +41,7 @@ class Strings
 		// to store the next str.
 		std::string **storageArea();
 		void destroy();
+		// also deletes allocated strings
 		void destroy(size_t start, size_t end);
 		// to d_capacity
 		std::string **enlarged();
@@ -59,7 +60,8 @@ inline size_t Strings::capacity() const
 	return d_capacity;
 }
 
-inline std::string const &Strings::at(size_t idx) const
+inline std::string const &Strings::at(
+	size_t idx) const
 {
 	return safeAt(idx);
 }

@@ -2,9 +2,11 @@
 
 // Basic: tmp is deleted after an allocation exception
 //         from "new string(next)".
-// Strong: Capacity is rolled back if "new string(next)"
-//          fails but not "storageArea()".
-// Nothrow: This function does not throw any exceptions.
+// Strong: Capacity is rolled back if
+//          "new string(next)" fails but not
+//          "storageArea()".
+// Nothrow: This function does not throw any
+//           exceptions.
 
 void Strings::add(string const &next)
 {
@@ -20,7 +22,8 @@ void Strings::add(string const &next)
 	{
 		delete[] tmp;
 		d_capacity = oldCapacity;
-		cerr << "(Strings) Unable to add string: \"memory allocation failed\".\n";
+		cerr << "(Strings) Unable to add string:"
+			<< " \"memory allocation failed\".\n";
 		return;
 	}
 

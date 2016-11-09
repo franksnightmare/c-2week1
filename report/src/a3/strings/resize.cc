@@ -3,14 +3,14 @@
 // Basic: If reserve fails then nothing is changed
 //         so there are no leaks.
 //        If the initializing of an empty string fails
-//         then all the new empty strings will be deleted
-//         along with the resized allocation.
+//         then all the new empty strings will be
+//         deleted along with the resized allocation.
 
 // Strong: If reserve fails then the requested
 //          enlarging can not be performed
 //          and so resize stops.
-//         If the initializing of the empty strings fails
-//          then the whole class is rerolled.
+//         If the initializing of the empty strings
+//          fails then the whole class is rolled back.
 
 // Nothrow: This function throws no exceptions.
 
@@ -24,7 +24,8 @@ void Strings::resize(size_t newSize)
 	reserve(newSize);
 	if (d_capacity < newSize)
 	{
-		cerr << "(Strings) Could not resize: \"reserve failed\".";
+		cerr << "(Strings) Could not resize:"
+			<< " \"reserve failed\".";
 		return;
 	}
 	
@@ -42,7 +43,8 @@ void Strings::resize(size_t newSize)
 			d_str = oldStr;
 			d_capacity = oldCapacity;
 			d_size = oldSize;
-			cerr << "(Strings) Unable to increase size: \"Memory allocation failed.\"\n";
+			cerr << "(Strings) Unable to increase size:"
+				<< " \"Memory allocation failed.\"\n";
 		}
 	}
 	// shrinking? remove excess strings

@@ -21,7 +21,8 @@ void Strings::reserve(size_t nextCapacity)
 		catch (bad_alloc &ba)
 		{
 			d_capacity = oldCapacity;
-			cerr << "(Strings) Unable to increase size: \"memory allocation failed\".\n";
+			cerr << "(Strings) Unable to increase size:"
+				<< " \"memory allocation failed\".\n";
 		}
 	}
 }

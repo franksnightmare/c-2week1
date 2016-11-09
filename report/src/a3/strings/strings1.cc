@@ -5,14 +5,13 @@
 // The caller of the constructor will
 // want to know that it failed.
 
-Strings::Strings(char **environLike)
+Strings::Strings()
 try :
-	Strings()
-{
-	while (*environLike)
-		add(*environLike++);
-}
+	d_str(rawPointers(1))
+{}
 catch (bad_alloc &ba)
 {
+	cerr << "(Strings) Unable to create strings object:"
+		<< " \"memory allocation failed\".\n";
 	throw;
 }

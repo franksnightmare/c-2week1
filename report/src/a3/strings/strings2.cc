@@ -5,12 +5,13 @@
 // The caller of the constructor will
 // want to know that it failed.
 
-Strings::Strings(char **environLike)
+Strings::Strings(int argc, char *argv[])
 try :
 	Strings()
 {
-	while (*environLike)
-		add(*environLike++);
+	for (size_t begin = 0, end = argc; begin != end;
+			++begin)
+		add(argv[begin]);
 }
 catch (bad_alloc &ba)
 {

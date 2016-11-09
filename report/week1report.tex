@@ -1,0 +1,98 @@
+\documentclass[11pt]{article}
+
+\usepackage{times}
+\usepackage[english]{babel}
+
+% -----------------------------------------------
+% especially use this for you code
+% -----------------------------------------------
+
+\usepackage{courier}
+\usepackage{listings}
+\usepackage{color}
+\usepackage{tabularx}
+\usepackage{graphicx}
+
+\definecolor{Gray}{gray}{0.95}
+
+\definecolor{mygreen}{rgb}{0,0.6,0}
+\definecolor{mygray}{rgb}{0.5,0.5,0.5}
+\definecolor{mymauve}{rgb}{0.58,0,0.82}
+
+\lstset{language=C++,
+	basicstyle = \normalsize\ttfamily,   % the size and fonts that are used
+	tabsize = 2,                    % sets default tabsize
+	breaklines = true,              % sets automatic line breaking
+	keywordstyle=\color{blue}\ttfamily,
+	stringstyle=\color{red}\ttfamily,
+	commentstyle=\color{mygreen}\ttfamily,
+	numbers=left,
+	keepspaces=true,
+	showspaces=false,
+	showstringspaces=false,
+}
+
+\begin{document}
+
+\title{Programming in C/C++ \\
+       Exercises set eight: Overloading
+}
+\date{\today}
+\author{Christiaan Steenkist \\
+Jaime Betancor Valado \\
+Remco Bos \\
+}
+
+\maketitle
+
+\section*{Exercise 1, catching and throwing references}
+\subsection*{Exercise description}
+There are 3 parts to this exercise:
+\begin{itemize}
+\item Show that exception catchers catching objects result in additional copies of thrown objects, compared to exception catchers catching references to objects.
+\item Also show that when throwing objects or references copies of the (referred to) objects are thrown.
+\item Also answer the question whether `throw;' results in throwing the currently available exception or a copy of that exception. 
+\end{itemize}
+
+\subsection*{Part 1, Throwing by value, catching by value}
+Throwing object 'main object'by value
+Caught exception by value
+Hello by 'local object' (copy)  (copy) // 2 copies are found
+
+-Throwing by value catching by reference:
+\begin{lstlisting}
+Throwing object 'main object' by value
+Caught exception by reference
+Hello by 'local object' (copy) // 1 copy is found (answered part 2)
+\end{lstlisting}
+
+\subsection*{Part 2}
+The '(copy)' is appended by the copy constructor, so atleast 1 copy is made
+by throwing an object.
+
+\subsection*{Part 3}
+'Throw' throws the original exception. An exception is rethrown when it is not caught yet in the present try-block level, then the exception will be retrown to a higher level until it is caught.
+That means that the exception is handled and will be inactivated.
+
+\subsection*{Code listings}
+\lstinputlisting[caption = demo.h]{src/a1/demo.h}
+\lstinputlisting[caption = main.cc]{src/a1/main.cc}
+
+\section*{Exercise 3, exceptions in the \texttt{Strings} class}
+Exception handling has been put into the \texttt{Strings} class.
+Generally bad allocations are handled by the class itself.
+The constructor can still throw bad allocation exceptions in case there is not enough memory to create a strings class.
+
+\subsection*{Code listing}
+\lstinputlisting[caption = strings.h]{src/a3/strings/strings.h}
+\lstinputlisting[caption = add.cc]{src/a3/strings/add.cc}
+\lstinputlisting[caption = destroy2.cc]{src/a3/strings/destroy2.cc}
+\lstinputlisting[caption = enlarged.cc]{src/a3/strings/enlarged.cc}
+\lstinputlisting[caption = reserve.cc]{src/a3/strings/reserve.cc}
+\lstinputlisting[caption = resize.cc]{src/a3/strings/resize.cc}
+\lstinputlisting[caption = storagearea.cc]{src/a3/strings/storagearea.cc}
+\lstinputlisting[caption = strings1.cc]{src/a3/strings/strings1.cc}
+\lstinputlisting[caption = strings2.cc]{src/a3/strings/strings2.cc}
+\lstinputlisting[caption = strings3.cc]{src/a3/strings/strings3.cc}
+
+\end{document}
