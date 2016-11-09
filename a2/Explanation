@@ -1,0 +1,3 @@
+First memory is allocated for 10 objects.
+When the exception is reached during construction of objects, the construction of further objects is terminated.
+This results in the extra allocated memory (i.e. objects 5 - 10 in the array) getting destroyed automatically.
