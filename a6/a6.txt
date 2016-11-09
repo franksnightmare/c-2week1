@@ -1,0 +1,8 @@
+1.	throw x;				A copy of object x is thrown
+2.	throw *xp;				The pointer *xp is thrown
+3.	throw new X(x);			The pointer new X(x) is thrown
+4.	throw X(x);				A copy of object X(x) is thrown
+5.	throw (x + *xp);		A copy of (x + *xp) is thrown
+6.	throw xp;				The address of xp is thrown
+7.	throw;					An exception is thrown
+8.	void fun() throw (type) Only a type-exception is allowed
