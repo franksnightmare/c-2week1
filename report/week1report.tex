@@ -54,16 +54,20 @@ There are 3 parts to this exercise:
 \item Also answer the question whether `throw;' results in throwing the currently available exception or a copy of that exception. 
 \end{itemize}
 
-\subsection*{Part 1, Throwing by value, catching by value}
-Throwing object 'main object'by value
-Caught exception by value
-Hello by 'local object' (copy)  (copy) // 2 copies are found
-
--Throwing by value catching by reference:
+\subsection*{1a, Throwing by value, catching by value}
+Throwing object 'main object' by value.
+Caught exception by value.
 \begin{lstlisting}
-Throwing object 'main object' by value
-Caught exception by reference
-Hello by 'local object' (copy) // 1 copy is found (answered part 2)
+// 2 copies are found
+Hello by 'local object' (copy)  (copy)
+\end{lstlisting}
+
+\subsection*{1b, Throwing by value catching by reference}
+Throwing object 'main object' by value.
+Caught exception by reference.
+\begin{lstlisting}
+// 1 copy is found (answered part 2)
+Hello by 'local object' (copy)
 \end{lstlisting}
 
 \subsection*{Part 2}
@@ -77,6 +81,20 @@ That means that the exception is handled and will be inactivated.
 \subsection*{Code listings}
 \lstinputlisting[caption = demo.h]{src/a1/demo.h}
 \lstinputlisting[caption = main.cc]{src/a1/main.cc}
+
+\section*{Exercise 2, delete[]}
+We designed a simple class that can only be constructed 4 times and then causes an exception.
+
+\subsection*{Explanation}
+First memory is allocated for 10 objects.
+When the exception is reached during construction of objects, the construction of further objects is terminated.
+This results in the extra allocated memory (i.e. objects 5 - 10 in the array) getting destroyed automatically.
+
+\subsection*{Code listing}
+\lstinputlisting[caption = maxfour.h]{src/a2/maxfour.h}
+\lstinputlisting[caption = constructor.cc]{src/a2/constructor.cc}
+\lstinputlisting[caption = destructor.cc]{src/a2/destructor.cc}
+\lstinputlisting[caption = main.cc]{src/a2/main.cc}
 
 \section*{Exercise 3, exceptions in the \texttt{Strings} class}
 Exception handling has been put into the \texttt{Strings} class.
@@ -94,5 +112,28 @@ The constructor can still throw bad allocation exceptions in case there is not e
 \lstinputlisting[caption = strings1.cc]{src/a3/strings/strings1.cc}
 \lstinputlisting[caption = strings2.cc]{src/a3/strings/strings2.cc}
 \lstinputlisting[caption = strings3.cc]{src/a3/strings/strings3.cc}
+
+\section*{Exercise 4, calling it quits}
+We had to find a way to quit no matter what but still call all the destructors.
+To do this we made a very small custom class that is thrown so that no catch can intercept it.
+
+\subsection*{Code listing}
+\lstinputlisting[caption = example.cc]{src/a4/a4example.cc}
+
+\section*{Exercise 6, throws}
+Here we have different throws that might come from exercise 6.
+
+\begin{tabular}{|c|c|c|}
+\hline
+No. & Statement & Reason \\ \hline
+1. & throw x; & A copy of object x is thrown \\ \hline
+2. & throw *xp; & The pointer *xp is thrown \\ \hline
+3. & throw new X(x); & The pointer new X(x) is thrown \\ \hline
+4. & throw X(x); & A copy of object X(x) is thrown \\ \hline
+5. & throw (x + *xp); & A copy of (x + *xp) is thrown \\ \hline
+6. & throw xp; & The address of xp is thrown \\ \hline
+7. & throw; & An exception is thrown \\ \hline
+8. & void fun() throw (type) & Only a type-exception is allowed \\ \hline
+\end{tabular}
 
 \end{document}

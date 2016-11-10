@@ -28,7 +28,7 @@ class Demo
         {
             Demo toThrow("'local object'");
             cout << "Throwing object " << d_name
-				<< "by value"<< "\n";
+                << "by value"<< "\n";
             throw toThrow;
         }
         void hello()
