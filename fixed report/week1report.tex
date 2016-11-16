@@ -90,6 +90,19 @@ First memory is allocated for 10 objects.
 When the exception is reached during construction of objects, the construction of further objects is terminated.
 This results in the destructors being called of the objects that were alreaedy constructed.
 
+\subsection*{Output}
+\begin{lstlisting}
+Constructor called
+Constructor called
+Constructor called
+Constructor called
+max. number of objects is reached 
+Destructor called
+Destructor called
+Destructor called
+Destructor called
+\end{lstlisting}
+
 \subsection*{Code listing}
 \lstinputlisting[caption = maxfour.h]{src/a2/maxfour.h}
 \lstinputlisting[caption = constructor.cc]{src/a2/constructor.cc}
@@ -106,6 +119,7 @@ The constructor can still throw bad allocation exceptions in case there is not e
 \lstinputlisting[caption = add.cc]{src/a3/strings/add.cc}
 \lstinputlisting[caption = destroy2.cc]{src/a3/strings/destroy2.cc}
 \lstinputlisting[caption = enlarged.cc]{src/a3/strings/enlarged.cc}
+\lstinputlisting[caption = reroll.cc]{src/a3/strings/reroll1.cc}
 \lstinputlisting[caption = reserve.cc]{src/a3/strings/reserve.cc}
 \lstinputlisting[caption = resize.cc]{src/a3/strings/resize.cc}
 \lstinputlisting[caption = storagearea.cc]{src/a3/strings/storagearea.cc}
