@@ -1,17 +1,13 @@
 #include "strings.ih"
 
-// If the construction fails none of the
-// exception guarantees are applicable.
-// The caller of the constructor will
-// want to know that it failed.
+// Basic: If the constructor fails then
+//         the allocations are not finished
+//         so there are no leaks.
+// NOT Strong: There is no state to roll back to.
+// NOT Nothrow: This constructor throws.
+
+// This function may throw bad_alloc.
 
 Strings::Strings()
-try :
 	d_str(rawPointers(1))
 {}
-catch (bad_alloc &ba)
-{
-	cerr << "(Strings) Unable to create strings object:"
-		<< " \"memory allocation failed\".\n";
-	throw;
-}

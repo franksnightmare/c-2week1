@@ -4,7 +4,8 @@
 //         are no allocations or leaks.
 // Strong: The capcity is rolled back if
 //          enlarging fails.
-// Nothrow: This function throws no exceptions.
+
+// This function may throw bad_alloc.
 
 void Strings::reserve(size_t nextCapacity)
 {
@@ -21,8 +22,10 @@ void Strings::reserve(size_t nextCapacity)
 		catch (bad_alloc &ba)
 		{
 			d_capacity = oldCapacity;
-			cerr << "(Strings) Unable to increase size:"
-				<< " \"memory allocation failed\".\n";
+			string message = "(Strings) Unable to increase";
+			message += " size: \"memory allocation";
+			message += " failed\".\n";
+			throw bad_alloc(message);
 		}
 	}
 }

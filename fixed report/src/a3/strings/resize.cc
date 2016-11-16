@@ -12,7 +12,8 @@
 //         If the initializing of the empty strings
 //          fails then the whole class is rolled back.
 
-// Nothrow: This function throws no exceptions.
+// This function may throw a bad_alloc from reserve
+//  or a bad_alloc from enlarging. 
 
 void Strings::resize(size_t newSize)
 {
@@ -22,30 +23,26 @@ void Strings::resize(size_t newSize)
 	
 	// make sure there's enough memory
 	reserve(newSize);
-	if (d_capacity < newSize)
-	{
-		cerr << "(Strings) Could not resize:"
-			<< " \"reserve failed\".";
-		return;
-	}
 	
 	// enlarging? initialize new strings
 	if (d_size > newSize)
 	{
-		try
+		for (; d_size != newSize; ++d_size)
 		{
-			for (; d_size != newSize; ++d_size)
+			try
+			{
 				d_str[d_size] = new string;
-		}
-		catch (bad_alloc &ba)
-		{
-			destroy(oldSize, d_size);
-			d_str = oldStr;
-			d_capacity = oldCapacity;
-			d_size = oldSize;
-			cerr << "(Strings) Unable to increase size:"
-				<< " \"Memory allocation failed.\"\n";
-		}
+			}
+			catch (bad_alloc &ba)
+			{
+				destroy(oldSize, d_size);
+				reroll(oldStr, oldCapacity, oldSize);
+				
+				string message = "(Strings) Unable to";
+				message += " increase size: \"memory";
+				message += " allocation failed\".\n";
+				throw bad_alloc(message);
+			}
 	}
 	// shrinking? remove excess strings
 	else if (newSize < d_size)

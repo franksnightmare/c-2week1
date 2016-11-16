@@ -3,9 +3,15 @@
 
 #include <iosfwd>
 
-// All the public member functions (bar constructors)
-// fulfill the exception guarantees so the class
-// as a whole fulfills the exception guarantees.
+// All public member functions have the basic
+//  guarantee.
+
+// All public member functions ahve the strong
+//  	guarantee.
+
+// Out of all the public member functions only
+//  the constructors, reserve and resize function
+//  do not ahve the nothrow guarantee.
 
 class Strings
 {
@@ -46,6 +52,10 @@ class Strings
 		// to d_capacity
 		std::string **enlarged();
 		std::string **rawPointers(size_t nPointers);
+		
+		// to roll back
+		void reroll(string **oldStr, size_t oldCapacity,
+			size_t oldSize)
 };
 
 // potentially dangerous practice:
