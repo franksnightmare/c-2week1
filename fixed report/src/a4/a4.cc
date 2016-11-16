@@ -3,7 +3,8 @@
 
 using namespace std;
 
-class Quiter {};	//Exclusive class to exit the program
+//Exclusive class to exit the program
+class Quiter {};
 
 int main()
 try
@@ -34,5 +35,5 @@ try
 }
 catch (Quiter &quit)
 {
-	cout << "Ending of program" << endl;
+	cout << "Ending of program\n";
 }
