@@ -3,10 +3,10 @@
 
 int main()
 {
-
     try
     {
         MaxFour *objArr = new MaxFour[10];
+        delete[] objArr;
     }
     catch(...)
     {
