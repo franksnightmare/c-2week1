@@ -88,7 +88,7 @@ We designed a simple class that can only be constructed 4 times and then causes 
 \subsection*{Explanation}
 First memory is allocated for 10 objects.
 When the exception is reached during construction of objects, the construction of further objects is terminated.
-This results in the extra allocated memory (i.e. objects 5 - 10 in the array) getting destroyed automatically.
+This results in the destructors being called of the objects that were alreaedy constructed.
 
 \subsection*{Code listing}
 \lstinputlisting[caption = maxfour.h]{src/a2/maxfour.h}

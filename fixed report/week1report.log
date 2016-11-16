@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2016.6.30)  16 NOV 2016 12:03
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2016.6.30)  16 NOV 2016 12:23
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -248,11 +248,11 @@ rc/a1/main.cc)
 (./src/a2/main.cc)
 LaTeX Font Info:    Font shape `OT1/pcr/bx/n' in size <14.4> not available
 (Font)              Font shape `OT1/pcr/b/n' tried instead on input line 99.
- (./src/a3/strings/strings.h [5] [6] [7])
+ [5] (./src/a3/strings/strings.h [6] [7])
 (./src/a3/strings/add.cc [8]) (./src/a3/strings/destroy2.cc)
-(./src/a3/strings/enlarged.cc [9]) (./src/a3/strings/reserve.cc)
-(./src/a3/strings/resize.cc [10] [11]) (./src/a3/strings/storagearea.cc
-[12]) (./src/a3/strings/strings1.cc) (./src/a3/strings/strings2.cc)
+(./src/a3/strings/enlarged.cc [9]) (./src/a3/strings/reserve.cc) [10]
+(./src/a3/strings/resize.cc [11]) (./src/a3/strings/storagearea.cc [12])
+(./src/a3/strings/strings1.cc) (./src/a3/strings/strings2.cc)
 (./src/a3/strings/strings3.cc [13]) (./src/a4/a4example.cc [14])
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <10.95> on input line 126.
@@ -272,7 +272,7 @@ Here is how much of TeX's memory you used:
 e/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb></usr/share/texlive/texmf-dist/
 fonts/type1/urw/times/utmb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw
 /times/utmr8a.pfb>
-Output written on week1report.pdf (15 pages, 79527 bytes).
+Output written on week1report.pdf (15 pages, 79596 bytes).
 PDF statistics:
  74 PDF objects out of 1000 (max. 8388607)
  51 compressed objects within 1 object stream
