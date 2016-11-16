@@ -141,13 +141,19 @@ Here we have different throws that might come from exercise 6.
 \hline
 No. & Statement & Reason \\ \hline
 1. & X x; & Default constructor could throw an exception \\ \hline
-2. & throw *xp; & The pointer *xp is thrown \\ \hline
-3. & throw new X(x); & The pointer new X(x) is thrown \\ \hline
-4. & throw X(x); & A copy of object X(x) is thrown \\ \hline
-5. & throw (x + *xp); & A copy of (x + *xp) is thrown \\ \hline
-6. & throw xp; & The address of xp is thrown \\ \hline
-7. & throw; & An exception is thrown \\ \hline
-8. & void fun() throw (type) & Only a type-exception is allowed \\ \hline
+2. & cout \textless\textless x; & Output operator could throw an exception \\ \hline
+3. & cout \textless\textless x; & If x is a type member data of X, the call of\\&&  X::operator int() could throw an exception\\ \hline
+4. & *xp = new X(x); & Copy constructor of x could throw an exception \\ \hline
+5. & *xp = new X(x); & Operator new could throw an exception \\ \hline
+6. & *xp = new X(x); & The overloaded operator new from X could throw an exception \\ \hline
+7. & cout \textless\textless (x + *xp); & If X has an operator conversor to a class Y,\\ &&x could throw an exception \\ \hline
+8. & cout \textless\textless (x + *xp); & If X has an operator conversor to a class Y,\\ &&*xp could throw an exception \\ \hline
+9. & cout \textless\textless (x + *xp); & If X has an operator conversor to a class Y,\\ &&operator + itself could throw an exception \\ \hline
+10. & cout \textless\textless (x + *xp); & The same as point 3 but with (x + *xp)  \\ \hline
+11. & cout \textless\textless (x + *xp); & Operator + return an object that shortly after is destroyed,\\ && the destroyer could throw an exception\\ \hline
+12. & delete xp; & Overloaded operator delete could throw an exception \\ \hline
+13. & delete xp; & Destructor of xp could throw an exception \\ \hline
+14. & \} & Reaching the end of the block the destructor of x is called,\\ && so again an exception could be thrown \\ \hline
 \end{tabular}
 
 \end{document}
