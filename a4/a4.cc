@@ -1,16 +1,38 @@
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+class Quiter {};	//Exclusive class to exit the program
+
 int main()
+try
+// nesting deeper
 {
-	//statements
+	// nesting deeper
 	{
-		//statements
+		// nesting deeper
 		{
-			//statements
+			// statements of deepest nested level
+			try
 			{
-				//statements of deepest nested level
-				return 0;//any number is valid(0,1...)
-				//This terminates the program calling
-				//the propers destructors at the end
+				Quiter x;
+				throw x;
+				// This terminates the program,
+				// the exception is caught by the
+				// same-level catch and then
+				// rethrown to upper levels
+				// until one catch (Quiter) is
+				// founded.
+			}
+			catch(...)
+			{
+				throw;
 			}
 		}
 	}
+}
+catch (Quiter &quit)
+{
+	cout << "Ending of program" << endl;
 }
