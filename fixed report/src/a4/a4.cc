@@ -35,5 +35,5 @@ try
 }
 catch (Quiter &quit)
 {
-	cout << "Ending of program\n";
+	cout << "Ending of program" << endl;
 }
